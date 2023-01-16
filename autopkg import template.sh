@@ -1,0 +1,1 @@
+munkiimport -n "zoomusInstallerFull.pkg" --catalog="testing" --repo_url="http://10.10.50.12/munki_repo" --name="Zoom" --displayname="Zoom" --description="Zoom App for macOS" --category="Communication" --developer="Zoom Video Communications"  --subdirectory="apps" --extract-icon
