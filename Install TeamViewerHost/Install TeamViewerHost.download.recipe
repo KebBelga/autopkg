@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Comment</key>
+	<string>Created with Recipe Robot v2.2.0 (https://github.com/homebysix/recipe-robot)</string>
+	<key>Description</key>
+	<string>Downloads the latest version of Install TeamViewerHost.</string>
+	<key>Identifier</key>
+	<string>Belga.download.InstallTeamViewerHost</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>Install TeamViewerHost</string>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>1.0.0</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>filename</key>
+				<string>%NAME%.dmg</string>
+				<key>url</key>
+				<string>https://dl.teamviewer.com/download/version_15x/TeamViewerHost.dmg?utm_source=google&amp;utm_medium=cpc&amp;utm_campaign=restofeurope%7Cb%7Cpr%7C22%7Caug%7Ctv-core-download-sn%7Cnew%7Ct0%7C0&amp;utm_content=Operating-Systems&amp;utm_term=teamviewer+mac+os&amp;gclid=EAIaIQobChMI-rvKw5PM_AIVTPV3Ch0kpgg3EAAYASAAEgJJ5PD_BwE&amp;ref=https%3A%2F%2Fwww.teamviewer.com%2Fen%2Fdownload%2Fmac-os%2F%3Futm_source%3Dgoogle%26utm_medium%3Dcpc%26utm_campaign%3Drestofeurope%257Cb%257Cpr%257C22%257Caug%257Ctv-core-download-sn%257Cnew%257Ct0%257C0%26utm_content%3DOperating-Systems%26utm_term%3Dteamviewer%2Bmac%2Bos%26gclid%3DEAIaIQobChMI-rvKw5PM_AIVTPV3Ch0kpgg3EAAYASAAEgJJ5PD_BwE</string>
+			</dict>
+			<key>Processor</key>
+			<string>URLDownloader</string>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>EndOfCheckPhase</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>input_path</key>
+				<string>%pathname%/Install TeamViewerHost.app</string>
+				<key>requirement</key>
+				<string>anchor apple generic and identifier "com.teamviewer.hostinstallerwrapper" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = H7UGFBUGV6)</string>
+			</dict>
+			<key>Processor</key>
+			<string>CodeSignatureVerifier</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>input_plist_path</key>
+				<string>%pathname%/Install TeamViewerHost.app/Contents/Info.plist</string>
+				<key>plist_version_key</key>
+				<string>CFBundleShortVersionString</string>
+			</dict>
+			<key>Processor</key>
+			<string>Versioner</string>
+		</dict>
+	</array>
+</dict>
+</plist>
